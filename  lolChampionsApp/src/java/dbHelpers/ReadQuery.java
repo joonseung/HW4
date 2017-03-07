@@ -63,6 +63,8 @@ public class ReadQuery {
             
             PreparedStatement ps = conn.prepareStatement(query);
             this.results = ps.executeQuery();
+            
+            
         } catch (SQLException ex) {
             Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -72,7 +74,7 @@ public class ReadQuery {
         
         String table = "";
         
-        table += "<table border=1";
+        table += "<table border=1>";
         
         try {
             while(this.results.next()){
@@ -85,25 +87,26 @@ public class ReadQuery {
                 champ.setSkins(this.results.getInt("skins"));
                 
                 table += "<tr>";
-                table += "<td>";
-                table += champ.getChampID();
-                table += "</td>";
                 
-                table += "<td>";
-                table += champ.getChampName();
-                table += "</td>";
-                
-                table += "<td>";
-                table += champ.getChampRole();
-                table += "</td>";
-                
-                table += "<td>";
-                table += champ.getPrice();
-                table += "</td>";
-                
-                table += "<td>";
-                table += champ.getSkins();
-                table += "</td>";
+                    table += "<td>";
+                    table += champ.getChampID();
+                    table += "</td>";
+
+                    table += "<td>";
+                    table += champ.getChampName();
+                    table += "</td>";
+
+                    table += "<td>";
+                    table += champ.getChampRole();
+                    table += "</td>";
+
+                    table += "<td>";
+                    table += champ.getPrice();
+                    table += "</td>";
+
+                    table += "<td>";
+                    table += champ.getSkins();
+                    table += "</td>";
                 
                 table += "</tr>";
             }
